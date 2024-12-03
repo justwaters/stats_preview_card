@@ -39,7 +39,7 @@ body {
 	width: 30px;
 	height: 30px;
 	filter: invert(1);
-	transition: filter 0.3s ease, transform 0.3s ease;
+	transition: transform 0.3s ease;
 }
 
 #mode-button:hover img {

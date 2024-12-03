@@ -2,25 +2,30 @@ body {
 	font-size: 15px;
 	font-family: "Inter", "Lexend Deca";
 	background-color: hsl(233, 47%, 7%);
+	padding: 0%;
+	margin: 0%;
 }
 
 .card {
 	background-color: hsl(244, 38%, 16%);
-	border-radius: 10px;
-	max-width: 500px;
-	min-height: 300px;
+	border-radius: 20px;
 	margin: auto auto;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 img {
 	width: 100%;
 	height: 100%;
-	filter: brightness(50%) contrast(80%) sepia(50%) saturate(1000%)
-		hue-rotate(230deg);
+	object-fit: cover;
+	filter: brightness(50%) contrast(70%) sepia(50%) saturate(1000%)
+		hue-rotate(235deg);
 }
 
 #content {
-	padding: 2vw;
+	grid-row-start: 1;
+	padding: 20px;
 }
 
 a {
@@ -29,6 +34,11 @@ a {
 
 #description {
 	color: hsla(0, 0%, 100%, 0.75);
+}
+
+#stats {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 #column p {
@@ -40,8 +50,30 @@ h2 {
 	color: hsl(0, 0%, 100%);
 }
 
-@media only screen and (max-width: 375px) {
+footer {
+	padding: 10px;
+	text-align: center;
+	color: hsla(0, 0%, 100%, 0.75);
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+@media only screen and (max-width: 550px) {
+	body {
+		text-align: center;
+	}
 	img {
 		content: url("images/image-header-mobile.jpg");
+	}
+	.card {
+		grid-template-columns: 1fr;
+	}
+	#stats {
+		grid-template-columns: 1fr;
+	}
+	#content {
+		padding: 2vw;
+		grid-row-start: 2;
 	}
 }

@@ -1,32 +1,41 @@
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 const prefersLightScheme = window.matchMedia("(prefers-color-scheme: light)");
 
-function updateThemePreference(e) {
-	if (e.matches) {
-		// If dark scheme is matched
-		document.body.classList.add("dark-mode");
-		document.body.classList.remove("light-mode");
+let userTheme = undefined;
+let currentTheme = "dark";
+
+function updateThemePreference() {
+	if (prefersDarkScheme.matches) {
+		console.log("User prefers dark mode");
+		userTheme = "dark";
 	} else {
-		// If light scheme is matched
-		document.body.classList.add("light-mode");
-		document.body.classList.remove("dark-mode");
+		console.log("User prefers light mode");
+		userTheme = "light";
 	}
+	console.log("currentTheme = " + currentTheme);
+	console.log("userTheme = " + userTheme);
+	if (userTheme !== currentTheme) {
+		document.body.classList.toggle("light-mode");
+		document.body.classList.toggle("dark-mode");
+		console.log("Switched!");
+		currentTheme = userTheme;
+	}
+	console.log("");
+	console.log("");
 }
 
-// Initial theme check
-updateThemePreference(prefersDarkScheme);
+updateThemePreference();
 
-// Add listeners for theme change
+// Add listener for theme change
 prefersDarkScheme.addEventListener("change", updateThemePreference);
-prefersLightScheme.addEventListener("change", updateThemePreference);
 
 // Mode toggle button
 document.getElementById("mode-button").addEventListener("click", () => {
-	if (document.body.classList.contains("dark-mode")) {
-		document.body.classList.remove("dark-mode");
-		document.body.classList.add("light-mode");
+	document.body.classList.toggle("light-mode");
+	document.body.classList.toggle("dark-mode");
+	if (currentTheme == "dark") {
+		currentTheme = "light";
 	} else {
-		document.body.classList.remove("light-mode");
-		document.body.classList.add("dark-mode");
+		currentTheme = "dark";
 	}
 });

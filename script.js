@@ -2,7 +2,7 @@ const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 function updateThemePreference(e) {
 	if (e.matches) {
-		document.body.classList.toggle("dark");
+		document.body.classList.toggle("dark-mode");
 	} else {
 		document.body.classList.toggle("light-mode");
 	}

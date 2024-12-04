@@ -40,6 +40,13 @@ function updateThemePreference() {
 }
 ```
 
+## Resources
+
+- [MDN Docs](https://developer.mozilla.org/en-US/)
+- [W3Schools](https://www.w3schools.com/)
+- [CSS Tricks](https://css-tricks.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+
 ## Author
 
 - Website - [JD Waters](https://justin.1waters.com)
